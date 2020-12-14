@@ -47,20 +47,29 @@ function draw() {
     sqrY = 580;
   }
   
+  fill(random(255), random(255), random(255));
+  noStroke();
+  rect(width-sqrW, height-sqrH, width, height);
+  if (sqrX + sqrW == 600 && sqrY + sqrH == 600) {
+      background(random(255), random(255), random(255));
+    
+  }
+  
 }
 
 class Interrupt {
   constructor() {
     this.x = random(10,550);
     this.y = random(10,550);
-    this.w = 50;
-    this.h = 50;
-    this.speed = 10;
+    this.w = 150;
+    this.h = 150;
+    this.speed = 20;
   }
 
   move() {
     this.x += random(-this.speed, this.speed);
     this.y += random(-this.speed, this.speed);
+    
   }
 
   display() {
@@ -72,11 +81,11 @@ class Interrupt {
     if (this.y <= 0) {
       this.y = 0;
     }
-    if (this.x + this.w >= 600) {
-      this.x = 550;
+    if (this.x + this.w >= width) {
+      this.x = width - this.w;
     }
-    if (this.y + this.h >= 600) {
-      this.y = 550;
+    if (this.y + this.h >= height) {
+      this.y = height - this.h;
     }
   }
 }
